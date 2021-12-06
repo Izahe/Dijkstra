@@ -20,10 +20,8 @@ If you'd like to compile this code yourself, you can refer to the table below fo
 | Parallelization Method      | Command (Replace "X" with 9, 50, or 100) |
 | ----------- | ----------- |
 | Serial Code |  nvc dijkstra_X_serial.c -o \<desired file name> | 
-| OpenMP CPU      | nvc -mp dijkstra_X_openmp_cpu_test.c -o \<desired file name>       |
-| OpenACC GPU   | nvc -acc -ta=tesla -Minfo=accel dijkstra_X_openacc_gpu_test.c -o \<desired file name>        |
-| OpenACC Multicore CPU | nvc -acc -ta=multicore -Minfo=accel dijkstra_X_openacc_cpu.c -o \<desired file name> |
-
+| OpenMP CPU      | nvc -mp dijkstra_X_OMP_test.c -o \<desired file name>       |
+| OpenACC GPU & Multicore CPU  | nvc -acc -ta=tesla -Minfo=accel dijkstra_X_ACC_test.c -o \<desired file name>        |
 NOTE: You will have to manually alter the batch script for different numbers of threads or gpus. 
 
 ## Running the code
