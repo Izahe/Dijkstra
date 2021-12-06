@@ -28,7 +28,6 @@ int minDistance(int dist[], bool sptSet[])
 void printSolution(int dist[])
 {
     printf("Vertex \t\t Distance from Source\n");
-    #pragma acc parallel loop
     for (int i = 0; i < V; i++)
         printf("%d \t\t %d\n", i, dist[i]);
 }
@@ -44,7 +43,8 @@ void dijkstra(int graph[V][V], int src)
     // path tree or shortest distance from src to i is finalized
  
     // Initialize all distances as INFINITE and stpSet[] as false
-    for (int i = 0; i < V; i++)
+    #pragma acc parallel loop
+     for (int i = 0; i < V; i++)
         dist[i] = INT_MAX, sptSet[i] = false;
  
     // Distance of source vertex from itself is always 0
