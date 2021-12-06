@@ -1,0 +1,6 @@
+#! /bin/bash
+#SBATCH -A see200002p       # specify the project or allocation number
+#SBATCH -N 1                    # Number of nodes, not cores (16 cores/node)
+#SBATCH -n 16# Number of cores requested in total
+export ACC_NUM_CORES=16
+./dijkstra_9_ACC

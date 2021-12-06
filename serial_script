@@ -1,0 +1,5 @@
+#! /bin/bash
+#SBATCH -A see200002p       # specify the project or allocation number
+#SBATCH -N 1                    # Number of nodes, not cores (16 cores/node)
+#SBATCH -n 1# Number of cores requested in total
+./dijkstra_100_serial

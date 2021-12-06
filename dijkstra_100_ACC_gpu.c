@@ -16,6 +16,7 @@ int minDistance(int dist[], bool sptSet[])
 {
     // Initialize min value
     int min = INT_MAX, min_index;
+    #pragma acc parallel loop
     for (int v = 0; v < V; v++)
         if (sptSet[v] == false && dist[v] <= min)
             min = dist[v], min_index = v;
@@ -27,6 +28,7 @@ int minDistance(int dist[], bool sptSet[])
 void printSolution(int dist[])
 {
     printf("Vertex \t\t Distance from Source\n");
+    #pragma acc parallel loop
     for (int i = 0; i < V; i++)
         printf("%d \t\t %d\n", i, dist[i]);
 }
@@ -58,6 +60,7 @@ void dijkstra(int graph[V][V], int src)
         sptSet[u] = true;
  
         // Update dist value of the adjacent vertices of the picked vertex.
+        #pragma acc parallel loop
         for (int v = 0; v < V; v++)
 
             // Update dist[v] only if is not in sptSet, there is an edge from
