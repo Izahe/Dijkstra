@@ -63,7 +63,7 @@ void dijkstra(int graph[V][V], int src)
         sptSet[u] = true;
  
         // Update dist value of the adjacent vertices of the picked vertex.
-       
+       #pragma omp parallel for
        	for (int v = 0; v < V; v++)
  
             // Update dist[v] only if is not in sptSet, there is an edge from
