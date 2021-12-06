@@ -53,7 +53,7 @@ void dijkstra(int graph[V][V], int src)
     dist[src] = 0;
  
     // Find shortest path for all vertices
-    #pragma omp parallel for collapse(2)
+    #pragma omp parallel for
     for (int count = 0; count < V - 1; count++) {
         // Pick the minimum distance vertex from the set of vertices not
         // yet processed. u is always equal to src in the first iteration.
